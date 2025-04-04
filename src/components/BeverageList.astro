@@ -1,0 +1,15 @@
+---
+import "../styles/global.css";
+import { getCollection } from "astro:content";
+
+const { alcoholic } = Astro.props;
+
+const drinks = await getCollection("drinks");
+---
+<ul>
+	{
+		drinks
+			.filter((drink) => drink.data.isAlcoholic === alcoholic)
+			.map((drink) => <div>{drink.data.title}</div>)
+	}
+</ul>
