@@ -1,4 +1,12 @@
 body {
+  color: #fff;
 	background-image: url("./textures/seamless_tile.png");
   background-repeat: repeat;
+  animation: moveBackground 20s linear infinite; 
 }
+
+@keyframes moveBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 60% 100%; }
+}
+
