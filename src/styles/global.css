@@ -1,12 +1,37 @@
+:root {
+	--bg: 25% 0.0075 70;
+
+	--pink: 77.75% 0.1003 350.51;
+	--gold: 84.16% 0.1169 71.19;
+	--mint: 84.12% 0.1334 165.28;
+
+	--mobile--w: 360px;
+	--mobile--h: 540px;
+
+	--outline-w: 9px;
+	--preview-bg: #fff;
+}
+
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   color: #fff;
 	background-image: url("./textures/seamless_tile.png");
   background-repeat: repeat;
-  animation: moveBackground 20s linear infinite; 
+  animation: moveBackground 20s ease-in-out infinite; 
 }
 
 @keyframes moveBackground {
   0% { background-position: 0 0; }
-  100% { background-position: 60% 100%; }
+  50% { background-position: 10% 100%; }
+  100% { background-position: 0 0; }
+}
+
+@font-face {
+  font-family: Futura;
+  src: url(./fonts/Futura_Book.ttf) format('truetype');
 }
 

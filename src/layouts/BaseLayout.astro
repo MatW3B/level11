@@ -12,6 +12,18 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle} | {BAR_NAME}</title>
   </head>
   <body>
+    <header>
+      <span class="baseLayout__headerLabel">{BAR_NAME}</span>
+    </header>
     <slot />
   </body>
 </html>
+
+<style lang="scss">
+  .baseLayout__headerLabel {
+    display: flex;
+    font-size: 60px;
+    font-family: Futura;
+    letter-spacing: 20px;
+  }
+</style>
