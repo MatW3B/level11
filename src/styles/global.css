@@ -14,7 +14,7 @@ body {
   height: 100%;
   margin: 0;
   color: #fff;
-	background-image: url("./textures/seamless_tile.png");
+	background-image: url("/textures/seamless_tile.png");
   background-repeat: repeat;
   animation: moveBackground 20s ease-in-out infinite; 
 }
