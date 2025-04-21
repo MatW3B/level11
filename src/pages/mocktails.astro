@@ -1,9 +1,9 @@
 ---
 import "../styles/global.css";
-import BaseLayout from "../layouts/BaseLayout.astro";
 import BeverageList from "../components/BeverageList.astro";
+import BeveragesLayout from "../layouts/BeveragesLayout.astro";
 ---
 
-<BaseLayout pageTitle="Mocktails">
+<BeveragesLayout pageTitle="Mocktails">
 	<BeverageList alcoholic={false} />
-</BaseLayout>
+</BeveragesLayout>

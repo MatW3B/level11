@@ -1,0 +1,20 @@
+---
+import "../styles/global.css";
+import { BAR_NAME } from "../constants";
+import BaseLayout from "./BaseLayout.astro";
+const { pageTitle } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<span class="baseLayout__headerLabel">{BAR_NAME}</span>
+	<slot />
+</BaseLayout>
+
+<style lang="scss">
+	.baseLayout__headerLabel {
+		display: flex;
+		font-size: 60px;
+		font-family: Futura;
+		letter-spacing: 20px;
+	}
+</style>
