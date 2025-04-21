@@ -1,7 +1,22 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 ---
-<BaseLayout pageTitle="Home Page">
-  <h2>My awesome blog subtitle</h2>
+
+<BaseLayout pageTitle="Welcome">
+	<section
+		class="preview__container"
+	>
+		<a class="preview mobile" tabindex="0">s</a>
+		<a class="preview mobile" tabindex="0">a</a>
+	</section>
 </BaseLayout>
+<style lang="scss">
+	.preview__container {
+		display: flex;
+		flex-wrap: wrap;
+
+		place-items: center;
+		place-content: center;
+	}
+</style>

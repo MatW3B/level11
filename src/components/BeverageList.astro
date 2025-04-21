@@ -4,12 +4,19 @@ import { getCollection } from "astro:content";
 
 const { alcoholic } = Astro.props;
 
-const drinks = await getCollection("drinks");
+const drinksCollection = await getCollection("drinks");
+const drinksFilteredByAlcoholic = drinksCollection.filter(
+	(drink) => drink.data.isAlcoholic === alcoholic
+);
 ---
-<ul>
-	{
-		drinks
-			.filter((drink) => drink.data.isAlcoholic === alcoholic)
-			.map((drink) => <div>{drink.data.title}</div>)
-	}
-</ul>
+
+{
+	drinksFilteredByAlcoholic.map((drink) => (
+		<div>
+			<div>{drink.data.title}</div>
+			<div>{drink.data.ingredients}</div>
+			<div>{drink.data.taste}</div>
+			<div>{drink.data.intensity}</div>	
+		</div>
+	))
+}
