@@ -1,6 +1,6 @@
 ---
 import ClientRouter from "astro/components/ClientRouter.astro";
-import "../styles/global.css";
+import "../styles/global.scss";
 import { BAR_NAME } from "../constants";
 const { pageTitle } = Astro.props;
 ---
@@ -12,11 +12,13 @@ const { pageTitle } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle} | {BAR_NAME}</title>
-    <ClientRouter />
+		<ClientRouter />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+</style>

@@ -1,0 +1,24 @@
+@use './fonts.scss';
+
+:root {
+  --color-caramel: #FCD68D;
+  --color-moss-green: #89A25B;
+  --color-olivine: #A8B875;
+  --color-offwhite: #F0F0F0;
+  --color-charcoal-gray: #2d2d2d;
+
+  --color-page-border: color-mix(in srgb, var(--color-caramel), transparent 25%);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, rgba(180,210,225,1) 0%, rgba(224,236,243,1) 67%, rgba(254,255,255,1) 95%);
+  color: var(--color-offwhite);
+}
