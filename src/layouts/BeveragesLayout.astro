@@ -5,15 +5,50 @@ const { pageTitle } = Astro.props;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<span class="baseLayout__headerLabel">{BAR_NAME}</span>
-	<slot />
+	<div class="beveragesLayout">
+		<div class="beveragesLayout__wrapper">
+			<span class="beveragesLayout__headerLabel">{BAR_NAME.slice(0,-2)} {BAR_NAME.slice(-2)}</span>
+			<slot />
+		</div>
+		<footer class="beveragesLayout__footer">
+			<p>04|2025</p>
+		</footer>
+	</div>
 </BaseLayout>
 
 <style lang="scss">
-	.baseLayout__headerLabel {
+	@use '../styles/mixins.scss' as *;
+	@use "sass:color";
+	$border-color: rgba(var(--color-caramel), 0.6);
+	.beveragesLayout {
 		display: flex;
-		font-size: 60px;
-		font-family: Futura;
-		letter-spacing: 20px;
+		flex-direction: column;
+		flex-grow: 1;
+		margin: 24px;
+		padding: 6px;
+		border: 2px solid var(--color-page-border);
+
+		&__headerLabel {
+			display: flex;
+			place-self: center;
+			font-size: 5rem;
+			font-family: 
+				Great Vibes,
+				sans-serif;
+			font-weight: 800;
+		}
+
+		&__footer {
+			display: flex;
+			margin-top: auto;
+			place-self: center;;
+			font-family: Pacifico;
+			font-size: 1rem;
+			letter-spacing: 4px;
+
+			&::after, &::before {
+				@include decorateElementWithTwoDashes();
+			}
+		}
 	}
 </style>
