@@ -1,1 +1,1 @@
-export const BAR_NAME = "LEVEL11";
+export const BAR_NAME = "Level 11";
