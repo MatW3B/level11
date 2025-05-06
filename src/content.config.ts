@@ -11,7 +11,6 @@ const drinks = defineCollection({
         title: z.string(),
         ingredients: z.array(z.string()),
         description: z.string({required_error: 'Description is required'}),
-        intensity: z.number(),
     }),
 });
 
