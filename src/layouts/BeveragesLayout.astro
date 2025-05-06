@@ -11,7 +11,7 @@ const { pageTitle } = Astro.props;
 			<slot />
 		</div>
 		<footer class="beveragesLayout__footer">
-			<p>04|2025</p>
+			<span>05|2025</span>
 		</footer>
 	</div>
 </BaseLayout>
@@ -25,7 +25,7 @@ const { pageTitle } = Astro.props;
 		flex-direction: column;
 		flex-grow: 1;
 		margin: 24px;
-		padding: 6px;
+		padding: 24px 40px;
 		border: 2px solid var(--color-page-border);
 
 		&__headerLabel {
@@ -41,7 +41,8 @@ const { pageTitle } = Astro.props;
 		&__footer {
 			display: flex;
 			margin-top: auto;
-			place-self: center;;
+			margin-bottom: 8px;
+			place-self: center;
 			font-family: Pacifico;
 			font-size: 1rem;
 			letter-spacing: 4px;
