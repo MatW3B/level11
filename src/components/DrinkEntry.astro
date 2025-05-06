@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+interface Props {
+	drinkData: typeof drinksCollection[number]["data"];
+}
+const drinksCollection = await getCollection("drinks");
+const { drinkData } = Astro.props;
+
+---
+
+<div class="drink__container">
+	<div class="drink__title">{drinkData.title}</div>
+	<div class="drink__description">{drinkData.description}</div>
+	<div class="drink__ingredients">
+		{
+			drinkData.ingredients.map((ingredient: string, index: number) => (
+				<>
+					<span class="drink__ingredient">{ingredient}</span>
+					{index !== drinkData.ingredients.length - 1 && <span>&</span>}
+				</>
+			))
+		}
+	</div>
+	<!-- <div>{drinkData.intensity}</div> -->
+</div>
+
+<style lang="scss">
+	@use "../styles/mixins.scss" as *;
+
+	.drink__title {
+		font-family: "Rosarivo", sans-serif;
+		font-size: 1.5rem;
+		font-weight: 800;
+		margin-bottom: 4px;
+	}
+
+	.drink__description {
+		font-family: "Libre Baskerville", sans-serif;
+		font-style: italic;
+		font-size: 1rem;
+
+		margin-bottom: 8px;
+	}
+
+	.drink__ingredients {
+		font-size: 0.85rem;
+		margin-bottom: 8px;
+	}
+
+	.drink__ingredient {
+		font-family: "Rosarivo", sans-serif;
+		font-weight: 600;
+	}
+</style>

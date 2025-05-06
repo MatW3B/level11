@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import DrinkEntry from "./DrinkEntry.astro";
 
 const { alcoholic } = Astro.props;
 
@@ -13,24 +14,12 @@ const SUBTITLE = alcoholic ? "Cocktails selection" : "Mocktails selection";
 <span class="beverages__subtitle">{SUBTITLE}</span>
 {
 	drinksFilteredByAlcoholic.map((drink) => (
-		<div>
-			<div>{drink.data.title}</div>
-			<div>{drink.data.description}</div>
-			<div>
-				{drink.data.ingredients.map((ingredient) => (
-					<span>{ingredient} * </span>
-				))}
-			</div>
-			<div>{drink.data.intensity}</div>
-		</div>
+		<DrinkEntry drinkData={drink.data}/>
 	))
 }
 
 <style lang="scss">
 	@use "../styles/mixins.scss" as *;
-	* {
-		font-family: "Pacifico", sans-serif;
-	}
 
 	.beverages__subtitle {
 		display: flex;
