@@ -1,0 +1,10 @@
+isAlcoholic: false
+title: "Lemoniada"
+description: "Cytrynowa lemoniada, słodka i orzeźwiająca, idealny na gorące dni."
+ingredients:
+  - Cytrynka
+  - Woda
+  - Cukier
+  - Mięta
+
+intensity: 2

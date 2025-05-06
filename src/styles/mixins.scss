@@ -1,0 +1,12 @@
+@mixin decorateElementWithTwoDashes() {
+    content: "\f068";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    position: relative;
+    font-size: 0.6rem;
+    margin: 0 8px;
+    top: 2px;
+    place-self: center;
+}

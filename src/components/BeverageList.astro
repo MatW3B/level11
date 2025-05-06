@@ -5,17 +5,46 @@ const { alcoholic } = Astro.props;
 
 const drinksCollection = await getCollection("drinks");
 const drinksFilteredByAlcoholic = drinksCollection.filter(
-	(drink) => drink.data.isAlcoholic === alcoholic
+	(drink) => drink.data.isAlcoholic === alcoholic,
 );
+const SUBTITLE = alcoholic ? "Cocktails selection" : "Mocktails selection";
 ---
 
+<span class="beverages__subtitle">{SUBTITLE}</span>
 {
 	drinksFilteredByAlcoholic.map((drink) => (
 		<div>
 			<div>{drink.data.title}</div>
-			<div>{drink.data.ingredients}</div>
-			<div>{drink.data.taste}</div>
-			<div>{drink.data.intensity}</div>	
+			<div>{drink.data.description}</div>
+			<div>
+				{drink.data.ingredients.map((ingredient) => (
+					<span>{ingredient} * </span>
+				))}
+			</div>
+			<div>{drink.data.intensity}</div>
 		</div>
 	))
 }
+
+<style lang="scss">
+	@use "../styles/mixins.scss" as *;
+	* {
+		font-family: "Pacifico", sans-serif;
+	}
+
+	.beverages__subtitle {
+		display: flex;
+		place-self: center;
+		font-size: 2rem;
+		font-family:
+			Great Vibes,
+			sans-serif;
+		font-weight: 800;
+		margin-bottom: 16px;
+
+		&::after,
+		&::before {
+			@include decorateElementWithTwoDashes();
+		}
+	}
+</style>
