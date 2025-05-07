@@ -21,7 +21,6 @@ const { drinkData } = Astro.props;
 			))
 		}
 	</div>
-	<!-- <div>{drinkData.intensity}</div> -->
 </div>
 
 <style lang="scss">
@@ -31,6 +30,7 @@ const { drinkData } = Astro.props;
 		font-family: "Rosarivo", sans-serif;
 		font-size: 1.5rem;
 		font-weight: 800;
+		color: var(--color-caramel);
 		margin-bottom: 4px;
 	}
 
@@ -38,17 +38,19 @@ const { drinkData } = Astro.props;
 		font-family: "Libre Baskerville", sans-serif;
 		font-style: italic;
 		font-size: 1rem;
+		font-weight: 500;
 
 		margin-bottom: 8px;
 	}
 
 	.drink__ingredients {
-		font-size: 0.85rem;
+		font-size: 0.88rem;
+		font-style: italic;
 		margin-bottom: 8px;
 	}
 
 	.drink__ingredient {
 		font-family: "Rosarivo", sans-serif;
-		font-weight: 600;
+		font-weight: 500;
 	}
 </style>
