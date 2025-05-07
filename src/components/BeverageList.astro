@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import DrinkEntry from "./DrinkEntry.astro";
+import ArtisticDelimiter from "./ArtisticDelimiter.astro";
 
 const { alcoholic } = Astro.props;
 
@@ -13,8 +14,11 @@ const SUBTITLE = alcoholic ? "Cocktails selection" : "Mocktails selection";
 
 <span class="beverages__subtitle">{SUBTITLE}</span>
 {
-	drinksFilteredByAlcoholic.map((drink) => (
+	drinksFilteredByAlcoholic.map((drink, index) => (
+	<>
 		<DrinkEntry drinkData={drink.data}/>
+		{index !== drinksFilteredByAlcoholic.length - 1 && <ArtisticDelimiter/>}
+	</>
 	))
 }
 
