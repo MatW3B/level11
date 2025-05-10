@@ -12,7 +12,7 @@ const drinksFilteredByAlcoholic = drinksCollection.filter(
 const SUBTITLE = alcoholic ? "Cocktails selection" : "Mocktails selection";
 ---
 
-<span class="beverages__subtitle">{SUBTITLE}</span>
+<h2 class="beverages__subtitle">{SUBTITLE}</h2>
 {
 	drinksFilteredByAlcoholic.map((drink, index) => (
 	<>
@@ -33,6 +33,7 @@ const SUBTITLE = alcoholic ? "Cocktails selection" : "Mocktails selection";
 			Great Vibes,
 			sans-serif;
 		font-weight: 800;
+		margin-top: 0;
 		margin-bottom: 16px;
 
 		&::after,

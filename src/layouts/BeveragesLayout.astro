@@ -11,9 +11,10 @@ const { pageTitle } = Astro.props;
 <BaseLayout pageTitle={pageTitle}>
 	<div class="beveragesLayout">
 		<div class="beveragesLayout__wrapper">
-			<span class="beveragesLayout__headerLabel"
-				>{BAR_NAME.slice(0, -2)} {BAR_NAME.slice(-2)}</span
-			>
+			<h1 class="beveragesLayout__headerLabel">
+				{BAR_NAME.slice(0, -2)}
+				{BAR_NAME.slice(-2)}
+			</h1>
 			<slot />
 		</div>
 		<footer class="beveragesLayout__footer">
@@ -43,6 +44,7 @@ const { pageTitle } = Astro.props;
 		&__headerLabel {
 			display: flex;
 			place-self: center;
+			margin: 0;
 			font-size: 5rem;
 			font-family:
 				Great Vibes,
