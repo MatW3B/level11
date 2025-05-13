@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import DrinkEntry from "./DrinkEntry.astro";
-import ArtisticDelimiter from "./ArtisticDelimiter.astro";
+import ArtisticDelimiter from "./decorative/ArtisticDelimiter.astro";
 
 const { alcoholic } = Astro.props;
 
@@ -15,30 +15,52 @@ const SUBTITLE = alcoholic ? "Cocktails selection" : "Mocktails selection";
 <h2 class="beverages__subtitle">{SUBTITLE}</h2>
 {
 	drinksFilteredByAlcoholic.map((drink, index) => (
-	<>
-		<DrinkEntry drinkData={drink.data}/>
-		{index !== drinksFilteredByAlcoholic.length - 1 && <ArtisticDelimiter/>}
-	</>
+		<>
+			<DrinkEntry drinkData={drink.data} />
+			{index !== drinksFilteredByAlcoholic.length - 1 ? (
+				<div class="beverages__delimiter beverages__delimiter--small">
+					<ArtisticDelimiter />
+				</div>
+			) : (
+				<div class="beverages__delimiter">
+					<ArtisticDelimiter showBottom={true} />
+				</div>
+			)}
+		</>
 	))
 }
 
 <style lang="scss">
 	@use "/src/styles/mixins.scss" as *;
 
-	.beverages__subtitle {
-		display: flex;
-		place-self: center;
-		font-size: 2rem;
-		font-family:
-			Great Vibes,
-			sans-serif;
-		font-weight: 800;
-		margin-top: 0;
-		margin-bottom: 16px;
+	.beverages {
+		&__subtitle {
+			display: flex;
+			place-self: center;
+			font-size: 2rem;
+			font-family:
+				Great Vibes,
+				sans-serif;
+			font-weight: 800;
+			margin-top: 0;
+			margin-bottom: 16px;
 
-		&::after,
-		&::before {
-			@include decorateElementWithTwoDashes();
+			&::after,
+			&::before {
+				@include decorateElementWithTwoDashes();
+			}
+		}
+
+		&__delimiter {
+			display: flex;
+			place-self: center;
+			margin-top: 24px;
+			height: 40px;
+			fill: color-mix(in srgb, var(--color-caramel), transparent 20%);
+
+			&--small {
+				height: 21px;
+			}
 		}
 	}
 </style>
