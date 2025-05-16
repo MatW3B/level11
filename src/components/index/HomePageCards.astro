@@ -36,7 +36,7 @@ import { slide } from "astro:transitions";
 
 		&__card {
 			--outline-w: 9px;
-			--shadow-blur: 50px;
+			--shadow-blur: 25px;
 			--shadow-color: oklch(25% 0.0075 70);
 			$min-card-height: 350px;
 			$min-card-width: 250px;
@@ -56,7 +56,7 @@ import { slide } from "astro:transitions";
 			border-radius: 6px;
 			outline: var(--outline-w) solid #fff;
 			outline-offset: var(--outline-w);
-			box-shadow: 0 0 var(--shadow-blur) 20px var(--shadow-color);
+			box-shadow: 0 0 var(--shadow-blur) 15px var(--shadow-color);
 
 			scale: 0.85;
 			rotate: var(--rotation);
@@ -67,7 +67,7 @@ import { slide } from "astro:transitions";
 			&:hover {
 				--shadow-color: var(--shadow-color);
 				--border-color: var(--shadow-color);
-				--shadow-blur: 100px;
+				--shadow-blur: 50px;
 
 				background-color: white;
 				outline-offset: calc(var(--outline-w) / 2);

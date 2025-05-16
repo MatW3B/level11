@@ -12,7 +12,10 @@ const swirlSwgClassName = "beverages";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="beveragesLayout" transition:animate={slide({duration: "0.9s"})}>
+	<div
+		class="beveragesLayout"
+		transition:animate={slide({ duration: "0.9s" })}
+	>
 		<div class="beveragesLayout__wrapper">
 			<h1 class="beveragesLayout__headerLabel">
 				{BAR_NAME.slice(0, -2)}
@@ -44,7 +47,9 @@ const swirlSwgClassName = "beverages";
 	@use "../styles/mixins.scss" as *;
 	@use "../styles/_viewport-breakpoints.scss" as *;
 	@use "sass:color";
+
 	$border-color: rgba(var(--color-caramel), 0.6);
+
 	.beveragesLayout {
 		display: flex;
 		position: relative;
@@ -54,9 +59,25 @@ const swirlSwgClassName = "beverages";
 		margin: 24px;
 		padding: 8px 24px;
 		border: 7px double var(--color-page-border);
+		background: var(--color-charcoal-gray);
+		box-shadow: 0 0 40px oklch(15% 0.0075 70);
 
 		@media (min-width: $mobileM-min-width-viewport) {
 			padding: 24px 40px;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+
+			background-image: url("/textures/extra_clean_paper.png");
+			mix-blend-mode: color-burn;
+			opacity: 0.5;
 		}
 
 		&__wrapper {
