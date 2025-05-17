@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/scrollbar';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('astro:page-load', function () {
     const swiper = new Swiper(".drinksSwiper", {
         modules: [FreeMode, Scrollbar],
         direction: "vertical",
