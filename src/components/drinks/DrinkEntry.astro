@@ -1,11 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 interface Props {
-	drinkData: typeof drinksCollection[number]["data"];
+	drinkData: (typeof drinksCollection)[number]["data"];
 }
 const drinksCollection = await getCollection("drinks");
 const { drinkData } = Astro.props;
-
 ---
 
 <div class="drink__container">
@@ -16,7 +15,9 @@ const { drinkData } = Astro.props;
 			drinkData.ingredients.map((ingredient: string, index: number) => (
 				<>
 					<span class="drink__ingredient">{ingredient}</span>
-					{index !== drinkData.ingredients.length - 1 && <span>&</span>}
+					{index !== drinkData.ingredients.length - 1 && (
+						<span>&</span>
+					)}
 				</>
 			))
 		}
@@ -43,7 +44,11 @@ const { drinkData } = Astro.props;
 			display: block;
 			width: 100%;
 			height: 1px;
-			background-color: color-mix(in srgb, var(--color-caramel), transparent 33%);
+			background-color: color-mix(
+				in srgb,
+				var(--color-caramel),
+				transparent 33%
+			);
 			margin-top: -4px;
 		}
 	}

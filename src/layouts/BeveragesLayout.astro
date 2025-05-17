@@ -22,10 +22,10 @@ const swirlSwgClassName = "beverages";
 				{BAR_NAME.slice(-2)}
 			</h1>
 			<slot />
+			<footer class="beveragesLayout__footer">
+				<span>05|2025</span>
+			</footer>
 		</div>
-		<footer class="beveragesLayout__footer">
-			<span>05|2025</span>
-		</footer>
 		<div class="beveragesLayout__swirl beveragesLayout__swirl--top-left">
 			<ArtisticSwirl svgClassName={swirlSwgClassName} />
 		</div>
@@ -49,14 +49,18 @@ const swirlSwgClassName = "beverages";
 	@use "sass:color";
 
 	$border-color: rgba(var(--color-caramel), 0.6);
+	$layout-margin: 24px;
 
 	.beveragesLayout {
-		display: flex;
 		position: relative;
+		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
+		overflow: hidden;
+		box-sizing: border-box;
+		height: calc(100% - 2 * $layout-margin);
 		max-width: 480px;
-		margin: 24px;
+		margin: $layout-margin;
 		padding: 8px 24px;
 		border: 7px double var(--color-page-border);
 		background: var(--color-charcoal-gray);
@@ -82,6 +86,8 @@ const swirlSwgClassName = "beverages";
 
 		&__wrapper {
 			display: flex;
+			position: relative;
+			height: 100%;
 			flex-direction: column;
 		}
 

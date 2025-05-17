@@ -3,7 +3,9 @@ import { getCollection } from "astro:content";
 import DrinkEntry from "./DrinkEntry.astro";
 import ArtisticDelimiter from "./decorative/ArtisticDelimiter.astro";
 
-const { alcoholic } = Astro.props;
+const { alcoholic } = Astro.props as {
+	alcoholic: boolean;
+};
 
 const drinksCollection = await getCollection("drinks");
 const drinksFilteredByAlcoholic = drinksCollection.filter(
@@ -12,26 +14,59 @@ const drinksFilteredByAlcoholic = drinksCollection.filter(
 const SUBTITLE = alcoholic ? "Cocktails selection" : "Mocktails selection";
 ---
 
+<script src="../../libs/swiper.js"></script>
+
 <h2 class="beverages__subtitle">{SUBTITLE}</h2>
-{
-	drinksFilteredByAlcoholic.map((drink, index) => (
-		<>
-			<DrinkEntry drinkData={drink.data} />
-			{index !== drinksFilteredByAlcoholic.length - 1 ? (
-				<div class="beverages__delimiter beverages__delimiter--small">
-					<ArtisticDelimiter />
-				</div>
-			) : (
-				<div class="beverages__delimiter">
-					<ArtisticDelimiter showBottom={true} />
-				</div>
-			)}
-		</>
-	))
-}
+
+<div class="beverages__container swiper drinksSwiper">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			{
+				drinksFilteredByAlcoholic.map((drink, index) => (
+					<>
+						<DrinkEntry drinkData={drink.data} />
+						{index !== drinksFilteredByAlcoholic.length - 1 ? (
+							<div class="beverages__delimiter beverages__delimiter--small">
+								<ArtisticDelimiter />
+							</div>
+						) : (
+							<div class="beverages__delimiter">
+								<ArtisticDelimiter showBottom={true} />
+							</div>
+						)}
+					</>
+				))
+			}
+		</div>
+	</div>
+	<div class="swiper-scrollbar"></div>
+</div>
 
 <style lang="scss">
 	@use "/src/styles/mixins.scss" as *;
+
+
+	.swiper {
+		width: 100%;
+		height: 100%;
+		margin-bottom: 24px;
+
+		&-slide {
+			display: flex;
+			flex-direction: column;
+			font-size: 18px;
+			height: auto;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		&-scrollbar {
+			right: -2px !important;
+			top: 1% !important;
+			height: 95% !important;
+			--swiper-scrollbar-drag-bg-color: color-mix(in srgb, var(--color-caramel), transparent 40%);
+		}
+	}
 
 	.beverages {
 		&__subtitle {
